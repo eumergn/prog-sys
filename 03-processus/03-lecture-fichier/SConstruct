@@ -1,0 +1,8 @@
+sources = Glob ("*.c")
+CFLAGS = ["-Wall", "-Wextra", "-Werror", "-g", "-pedantic"]
+
+env = Environment (CCFLAGS = CFLAGS)
+color = ARGUMENTS.get('color', 0)
+if int (color):
+   env.Append (CCFLAGS='-D COLOR')
+env.Program (sources)
